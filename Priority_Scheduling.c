@@ -1,7 +1,7 @@
 #include<stdio.h> 
 #include<unistd.h>
 #include<stdlib.h>
-#include<bits/stdc++.h>
+//#include<bits/stdc++.h>
  
 int main() 
 { 
@@ -10,7 +10,7 @@ int main()
   
   int wait_time=0,turnaround_time=0,at[10],bt[10],rt[10]; 
   
-  printf("Enter Total Process:\t "); 
+  printf("Enter Total Number of Process:\t "); 
   
   scanf("%d",&n); 
   
@@ -18,10 +18,10 @@ int main()
   
   for(count=0;count<n;count++) 
   { 
-    printf("Enter Arrival Time and Burst Time for Process Process Number %d :",count+1); 
+    printf("Enter Arrival Time for Process, Process Number %d :",count+1); 
     
     scanf("%d",&at[count]); 
-    
+    printf("Enter Burst Time for Process, Process Number %d :",count+1);
     scanf("%d",&bt[count]); 
     
     rt[count]=bt[count]; 
@@ -53,3 +53,5 @@ int main()
       rt[count]-=time_quantum; 
       time+=time_quantum; 
     } 
+}
+}
