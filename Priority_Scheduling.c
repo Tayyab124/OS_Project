@@ -1,30 +1,36 @@
 #include<stdio.h> 
 #include<unistd.h>
 #include<stdlib.h>
-//#include<bits/stdc++.h>
+#include<bits/stdc++.h>
  
 int main() 
 { 
  
   int count,j,n,time,remain,flag=0,time_quantum; 
   
-  int wait_time=0,turnaround_time=0,at[10],bt[10],rt[10]; 
+  int wait_time=0,turnaround_time=0,at[10],bt[10],rt[10],pr[10]; 
   
   printf("Enter Total Process:\t "); 
   
   scanf("%d",&n); 
   
   remain=n; 
-  
+    //int pr;
   for(count=0;count<n;count++) 
   { 
-    printf("Enter Arrival Time and Burst Time for Process Process Number %d :",count+1); 
+    printf("Enter Arrival Time for Process Number %d :",count+1); 
     
     scanf("%d",&at[count]); 
-    
+    printf("Enter Burst Time for Process Number %d:",count+1);
     scanf("%d",&bt[count]); 
     
-    rt[count]=bt[count]; 
+    printf("Enter priority of process  %d :",count+1);
+    
+	scanf("%d",&pr[count]); 
+    
+    rt[count]=bt[count];
+	
+	//system(clear); 
     
   } 
   printf("Enter Time Quantum:\t"); 
@@ -55,11 +61,14 @@ int main()
     } 
     if(rt[count]==0 && flag==1) 
     { 
+    int i;
       remain--; 
       printf("P[%d]\t|\t%d\t|\t%d\n",count+1,time-at[count],time-at[count]-bt[count]); 
       wait_time+=time-at[count]-bt[count]; 
       turnaround_time+=time-at[count]; 
       flag=0; 
+      pr[i]=remain+i;
+      i++;
     } 
     if(count==n-1) 
       count=0; 
